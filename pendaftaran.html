@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Anggota — Koperasi Charta Cempaka</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'DM Sans', sans-serif; color: #1C1C1A; }
+    .serif { font-family: 'Playfair Display', serif; }
+    .mono  { font-family: 'DM Mono', monospace; }
+
+    /* step connector */
+    .step-item { position: relative; }
+    .step-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 13px; top: 28px;
+      width: 1px; height: calc(100% - 14px);
+      background: rgba(201,168,76,0.25);
+    }
+
+    /* radio card */
+    .radio-card { transition: border-color 0.15s, background 0.15s; cursor: pointer; }
+    .radio-card:hover { border-color: rgba(201,168,76,0.5) !important; background: #fff !important; }
+    .radio-card.selected { border-color: #C9A84C !important; background: #FFFDF7 !important; }
+    .radio-card.selected .radio-outer { border-color: #C9A84C !important; }
+    .radio-card.selected .radio-dot  { display: block !important; }
+
+    /* inputs */
+    input, textarea, select {
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #C9A84C !important;
+      background: #fff !important;
+    }
+
+    /* smooth scroll */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-[#F5F0E8]">
+
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+  <nav class="flex items-center justify-between px-12 py-4 bg-[#F5F0E8] border-b border-black/10">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 bg-[#1A3D2E] rounded-lg flex items-center justify-center flex-shrink-0">
+        <span class="serif text-[#C9A84C] font-bold text-lg leading-none">K</span>
+      </div>
+      <div>
+        <p class="font-medium text-sm leading-tight">Koperasi Charta Cempaka</p>
+        <p class="text-[11px] text-gray-400">Pendaftaran Anggota</p>
+      </div>
+    </div>
+    <a href="index.html" class="flex items-center gap-1.5 text-[13px] text-gray-500 hover:text-[#1A3D2E] transition-colors">
+      ← Kembali ke Beranda
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════ MAIN GRID ═══════════════════════ -->
+  <div class="grid grid-cols-2 min-h-[calc(100vh-65px)]">
+
+    <!-- ─── LEFT PANEL ─── -->
+    <div class="bg-[#1A3D2E] px-12 py-14 flex flex-col justify-between relative overflow-hidden">
+
+      <!-- decorative circles -->
+      <div class="absolute bottom-[-60px] right-[-60px] w-[280px] h-[280px] rounded-full border border-[#C9A84C]/10 pointer-events-none"></div>
+      <div class="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] rounded-full border border-[#C9A84C]/[0.04] pointer-events-none"></div>
+
+      <div class="relative z-10">
+        <!-- overline -->
+        <div class="flex items-center gap-2 mb-6">
+          <span class="inline-block w-6 h-px bg-[#C9A84C]"></span>
+          <span class="text-[11px] font-medium tracking-[0.18em] text-[#C9A84C] uppercase">Pendaftaran Anggota</span>
+        </div>
+
+        <h1 class="serif font-black leading-[1.08] text-[#F5F0E8] mb-6" style="font-size:clamp(36px,4vw,56px);">
+          Mulai<br>perjalanan<br>finansial<br>
+          <em class="italic text-[#C9A84C]">Anda.</em>
+        </h1>
+
+        <p class="text-[14px] leading-[1.9] text-white/60 max-w-xs mb-10">
+          Isi formulir berikut untuk menjadi anggota resmi Koperasi Charta Cempaka.
+          Proses pendaftaran cepat dan mudah.
+        </p>
+
+        <!-- STEP INDICATORS -->
+        <div class="flex flex-col gap-0">
+
+          <div class="step-item flex items-start gap-3.5 pb-5">
+            <div class="w-7 h-7 rounded-full bg-[#C9A84C]/30 border border-[#C9A84C] flex items-center justify-center flex-shrink-0 mono text-[11px] text-[#C9A84C] font-medium">✓</div>
+            <div class="pt-0.5">
+              <p class="text-sm font-medium text-[#F5F0E8]">Data Pribadi</p>
+              <p class="text-[11px] text-white/40">Nama, NIK, tanggal lahir</p>
+            </div>
+          </div>
+
+          <div class="step-item flex items-start gap-3.5 pb-5">
+            <div class="w-7 h-7 rounded-full bg-[#C9A84C] flex items-center justify-center flex-shrink-0 mono text-[11px] text-[#1A3D2E] font-medium">2</div>
+            <div class="pt-0.5">
+              <p class="text-sm font-medium text-[#F5F0E8]">Data Kontak &amp; Pekerjaan</p>
+              <p class="text-[11px] text-white/40">Alamat, no. HP, pekerjaan</p>
+            </div>
+          </div>
+
+          <div class="step-item flex items-start gap-3.5 pb-0">
+            <div class="w-7 h-7 rounded-full bg-[#C9A84C]/12 border border-[#C9A84C]/30 flex items-center justify-center flex-shrink-0 mono text-[11px] text-[#C9A84C] font-medium">3</div>
+            <div class="pt-0.5">
+              <p class="text-sm font-medium text-white/35">Konfirmasi &amp; Kirim</p>
+              <p class="text-[11px] text-white/25">Review data pendaftaran</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- trust badge -->
+      <div class="relative z-10 flex items-center gap-2 text-[11px] text-white/40 mt-8">
+        <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Data Anda dilindungi dan tidak dibagikan ke pihak ketiga
+      </div>
+    </div>
+
+    <!-- ─── RIGHT PANEL — FORM ─── -->
+    <div class="bg-[#FAF7F2] px-14 py-12 overflow-y-auto">
+
+      <div class="mb-8">
+        <h2 class="serif text-2xl font-bold text-[#1A3D2E] mb-1">Formulir Pendaftaran</h2>
+        <p class="text-[13px] text-gray-400">Semua kolom bertanda * wajib diisi dengan benar</p>
+      </div>
+
+      <!-- PROGRESS BAR -->
+      <div class="mb-8">
+        <div class="flex justify-between mono text-[11px] text-gray-400 mb-2">
+          <span>Langkah 2 dari 3</span>
+          <span>60% selesai</span>
+        </div>
+        <div class="h-1 bg-black/10 rounded-full overflow-hidden">
+          <div class="h-full w-[60%] bg-[#C9A84C] rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- ── CARD 1: DATA PRIBADI ── -->
+      <div class="bg-white rounded-2xl border border-black/[0.07] p-7 mb-4">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="inline-block w-4 h-px bg-[#C9A84C]"></span>
+          <span class="text-[11px] font-medium tracking-[0.14em] text-[#C9A84C] uppercase">Data Pribadi</span>
+        </div>
+
+        <!-- Nama -->
+        <div class="mb-4">
+          <label class="block text-[12px] font-medium text-[#444] mb-1.5 tracking-wide">Nama Lengkap *</label>
+          <input type="text" placeholder="Masukkan nama lengkap Anda"
+            class="w-full px-3.5 py-2.5 border border-black/[0.12] rounded-lg text-[13px] text-[#1C1C1A] bg-[#FAFAF8] placeholder-gray-300" />
+        </div>
+
+        <!-- NIK -->
+        <div class="mb-4">
+          <label class="block text-[12px] font-medium text-[#444] mb-1.5 tracking-wide">NIK — Nomor Induk Kependudukan *</label>
+          <input type="text" placeholder="16 digit sesuai KTP" maxlength="16"
+            class="mono w-full px-3.5 py-2.5 border border-black/[0.12] rounded-lg text-[13px] text-[#1C1C1A] bg-[#FAFAF8] placeholder-gray-300 tracking-wider" />
+        </div>
+
+        <!-- Tempat & Tanggal Lahir -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[12px] font-medium text-[#444] mb-1.5 tracking-wide">Tempat Lahir *</label>
+            <input type="text" placeholder="Kota tempat lahir"
+              class="w-full px-3.5 py-2.5 border border-black/[0.12] rounded-lg text-[13px] text-[#1C1C1A] bg-[#FAFAF8] placeholder-gray-300" />
+          </div>
+          <div>
+            <label class="block text-[12px] font-medium text-[#444] mb-1.5 tracking-wide">Tanggal Lahir *</label>
+            <input type="date"
+              class="w-full px-3.5 py-2.5 border border-black/[0.12] rounded-lg text-[13px] text-[#1C1C1A] bg-[#FAFAF8]" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 2: KONTAK ── -->
+      <div class="bg-white rounded-2xl border border-black/[0.07] p-7 mb-4">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="inline-block w-4 h-px bg-[#C9A84C]"></span>
+          <span class="text-[11px] font-medium tracking-[0.14em] text-[#C9A84C] uppercase">Kontak &amp; Domisili</span>
+        </div>
+
+        <!-- Alamat -->
+        <div class="mb-4">
+          <label class="block text-[12px] font-medium text-[#444] mb-1.5 tracking-wide">Alamat Lengkap *</label>
+          <textarea rows="3" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan, Kota"
+            class="w-full px-3.5 py-2.5 border border-black/[0.12] rounded-lg text-[13px] text-[#1C1C1A] bg-[#FAFAF8] placeholder-gray-300 resize-none leading-relaxed"></textarea>
+        </div>
+
+        <!-- No HP -->
+        <div>
+          <label class="block text-[12px] font-medium text-[#444] mb-1.5 tracking-wide">Nomor HP Aktif *</label>
+          <input type="tel" placeholder="08xx xxxx xxxx"
+            class="mono w-full px-3.5 py-2.5 border border-black/[0.12] rounded-lg text-[13px] text-[#1C1C1A] bg-[#FAFAF8] placeholder-gray-300 tracking-wider" />
+        </div>
+      </div>
+
+      <!-- ── CARD 3: PEKERJAAN ── -->
+      <div class="bg-white rounded-2xl border border-black/[0.07] p-7 mb-6">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="inline-block w-4 h-px bg-[#C9A84C]"></span>
+          <span class="text-[11px] font-medium tracking-[0.14em] text-[#C9A84C] uppercase">Pekerjaan</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3" id="pekerjaan-grid">
+
+          <div class="radio-card border border-black/10 rounded-xl p-4 bg-[#FAFAF8] flex items-start gap-2.5" onclick="selectPekerjaan(this)">
+            <div class="radio-outer w-[18px] h-[18px] rounded-full border-[1.5px] border-gray-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="radio-dot hidden w-2 h-2 rounded-full bg-[#C9A84C]"></div>
+            </div>
+            <div>
+              <p class="text-[13px] font-medium text-[#1C1C1A] mb-0.5">PNS</p>
+              <p class="text-[11px] text-gray-400">Pegawai Negeri Sipil</p>
+            </div>
+          </div>
+
+          <div class="radio-card border border-black/10 rounded-xl p-4 bg-[#FAFAF8] flex items-start gap-2.5" onclick="selectPekerjaan(this)">
+            <div class="radio-outer w-[18px] h-[18px] rounded-full border-[1.5px] border-gray-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="radio-dot hidden w-2 h-2 rounded-full bg-[#C9A84C]"></div>
+            </div>
+            <div>
+              <p class="text-[13px] font-medium text-[#1C1C1A] mb-0.5">Swasta</p>
+              <p class="text-[11px] text-gray-400">Karyawan perusahaan swasta</p>
+            </div>
+          </div>
+
+          <div class="radio-card border border-black/10 rounded-xl p-4 bg-[#FAFAF8] flex items-start gap-2.5" onclick="selectPekerjaan(this)">
+            <div class="radio-outer w-[18px] h-[18px] rounded-full border-[1.5px] border-gray-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="radio-dot hidden w-2 h-2 rounded-full bg-[#C9A84C]"></div>
+            </div>
+            <div>
+              <p class="text-[13px] font-medium text-[#1C1C1A] mb-0.5">Wiraswasta</p>
+              <p class="text-[11px] text-gray-400">Usaha mandiri / pengusaha</p>
+            </div>
+          </div>
+
+          <div class="radio-card border border-black/10 rounded-xl p-4 bg-[#FAFAF8] flex items-start gap-2.5" onclick="selectPekerjaan(this)">
+            <div class="radio-outer w-[18px] h-[18px] rounded-full border-[1.5px] border-gray-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="radio-dot hidden w-2 h-2 rounded-full bg-[#C9A84C]"></div>
+            </div>
+            <div>
+              <p class="text-[13px] font-medium text-[#1C1C1A] mb-0.5">Lainnya</p>
+              <p class="text-[11px] text-gray-400">Pelajar, pensiunan, dll</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <button onclick="handleSubmit()"
+        class="w-full py-4 bg-[#1A3D2E] text-[#F5F0E8] rounded-xl text-[15px] font-medium flex items-center justify-center gap-2 hover:bg-[#2a5a44] transition-colors cursor-pointer border-none">
+        Kirim Pendaftaran →
+      </button>
+
+      <p class="text-[11px] text-gray-400 text-center mt-3 leading-relaxed">
+        Dengan mengirim formulir ini, Anda menyetujui syarat &amp; ketentuan<br>
+        yang berlaku di Koperasi Charta Cempaka.
+      </p>
+
+    </div>
+  </div>
+
+  <script src="assets/pendaftaran.js"></script>
+</body>
+</html>
